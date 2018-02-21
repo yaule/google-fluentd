@@ -1,6 +1,7 @@
 FROM debian:stretch
 
-RUN sed -i 's/101/0/' /usr/sbin/policy-rc.d \
+# Avoid ERROR: invoke-rc.d: policy-rc.d denied execution of start.
+RUN sed -i 's/^exit 101$/exit 0/' /usr/sbin/policy-rc.d \
     && apt-get update \
     && apt-get install -y \
         curl \
