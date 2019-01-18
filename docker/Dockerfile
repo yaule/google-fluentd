@@ -6,6 +6,7 @@ FROM debian:9.6-slim
 ARG REPO_SUFFIX=unstable
 
 COPY entrypoint.sh Dockerfile VERSION /
+COPY fluent-plugin-buffer-output-stub-0.0.1.gem /fluent-plugin-buffer-output-stub-0.0.1.gem
 
 # TODO: This may be a moving target, figure out how to pin.
 RUN apt-get update \
@@ -26,6 +27,7 @@ RUN apt-get update \
     && /opt/google-fluentd/embedded/bin/gem list fluent-plugin-google-cloud | sed 's/^fluent-plugin-google-cloud (\(.*\))$/FLUENT_PLUGIN_GOOGLE_CLOUD_VERSION=\1/' >> /VERSION \
     # If any additional gems need to be installed, it should happen before the
     # image cleanup.
+    && /opt/google-fluentd/embedded/bin/gem install /fluent-plugin-buffer-output-stub-0.0.1.gem \
     # ==> INSTALL_ADDITIONAL_GEMS_HERE_IF_NEEDED <==
     # Clean up to reduce image size.
     && apt-get purge -y \
