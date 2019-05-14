@@ -169,13 +169,13 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 # These are all a known set of versions which work together. Be sure things work if you
 # update any of them.
 #
-# We install all gems with '--no-ri --no-rdoc --no-document' so we don't pull in
+# We install all gems with '--no-document --no-document' so we don't pull in
 # unneeded docs that bloat the file size (and also seem to cause issues with unzipping).
 ###############################
 
-& $GEM_CMD install fluentd:0.14.15 --no-ri --no-rdoc --no-document
-& $GEM_CMD install windows-pr:1.2.5 win32-ipc:0.6.6 win32-event:0.6.3 win32-eventlog:0.6.6 win32-service:0.8.9 fluent-plugin-windows-eventlog:0.2.1 --no-ri --no-rdoc --no-document
-& $GEM_CMD install protobuf:3.6 google-protobuf:3.7.1 grpc:1.8.3 googleapis-common-protos:1.3.4 fluent-plugin-google-cloud:0.7.11 --no-ri --no-rdoc --no-document
+& $GEM_CMD install fluentd:0.14.15 --no-document --no-document
+& $GEM_CMD install windows-pr:1.2.5 win32-ipc:0.6.6 win32-event:0.6.3 win32-eventlog:0.6.6 win32-service:0.8.9 fluent-plugin-windows-eventlog:0.2.1 --no-document --no-document
+& $GEM_CMD install protobuf:3.6 google-protobuf:3.7.1 grpc:1.8.3 googleapis-common-protos:1.3.4 fluent-plugin-google-cloud:0.7.11 --no-document --no-document
 
 ##############################
 #  STEP 5.1 - TEMPORARY HACK TO UPDATE RUBY FILE

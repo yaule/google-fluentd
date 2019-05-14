@@ -18,6 +18,6 @@ RUN zypper -n refresh \
  && git config --global user.email "stackdriver-github-reader@google.com" \
  && git config --global user.name "stackdriverreader" \
  && (curl -sSL https://get.rvm.io | /bin/bash -s stable) \
- && /bin/bash -l -c "rvm requirements && rvm install 2.4 && gem install bundler --no-ri --no-rdoc && gem update" \
+ && /bin/bash -l -c "rvm requirements && rvm install 2.4 && gem install bundler --no-document && gem update" \
  && /bin/sed -i -e 's/VERSION = 42.3/VERSION = 12/' /etc/SuSE-release \
  && /bin/sed -i -e 's/VERSION="42.3"/VERSION="12-SP3"/' -e 's/VERSION_ID="42.3"/VERSION_ID="12.3"/' /etc/os-release
