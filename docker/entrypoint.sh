@@ -23,8 +23,8 @@ fi
 #
 # Default behavior uses CMD defined in Dockerfile.
 # $ docker run -it {image:tag}
+ulimit -s 2048
 if [ "${1:0:1}" = '-' ]; then
-  ulimit -s 2048
   exec "/usr/sbin/google-fluentd" "$@"
 else
   exec "$@"
